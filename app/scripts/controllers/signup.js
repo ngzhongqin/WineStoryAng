@@ -13,11 +13,10 @@ app.controller('SignUpCtrl', function ($scope, $http) {
 	$scope.submitPost = function () {
 		alert("submitPost");
           var data = {
-              'email' : "test_email",
-              'password' : "test_pasword"
+              'email' : $scope.signup.email,
+              'password' : $scope.signup.password,
+              'full_name' : $scope.signup.full_name
           };
-
-          // var res = $http.post('/http://localhost:8080/login', data);
 
           var req = {
            method: 'POST',
@@ -25,7 +24,7 @@ app.controller('SignUpCtrl', function ($scope, $http) {
            headers: {
              'Content-Type': "application/json"
            },
-           data:{test: 'tessdfasdf sdafsat'}
+           data:{data: data}
           }
 
           $http(req).success(function (data, status, headers, config) {

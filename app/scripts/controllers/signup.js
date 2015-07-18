@@ -7,11 +7,11 @@
  * # SignUpCtrl
  * Controller of the winestoryApp
  */
-angular.module('winestoryApp')
-  .controller('SignUpCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+
+app.controller('SignUpCtrl', function ($scope) {
+
+	$scope.submitPost = function () {
+		alert("submitPost");
+	};
+
+});

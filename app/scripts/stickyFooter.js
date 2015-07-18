@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * jQuery Sticky Footer 2.0
  * Corey Snyder

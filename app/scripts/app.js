@@ -1,3 +1,6 @@
+/* global app:true */
+/* exported app */
+
 'use strict';
  $(document).foundation();
 /**
@@ -8,7 +11,7 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('winestoryApp', [
     'ngAnimate',
     'ngAria',

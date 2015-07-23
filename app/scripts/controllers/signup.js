@@ -11,7 +11,7 @@
 app.controller('SignUpCtrl', function ($scope, $http) {
 
 	$scope.submitPost = function () {
-		alert("submitPost");
+    console.log("PSignUpCtrl submitPost");
           var data = {
               'email' : $scope.signup.email,
               'password' : $scope.signup.password,

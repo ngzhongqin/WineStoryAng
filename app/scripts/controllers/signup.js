@@ -22,14 +22,21 @@ app.controller('SignUpCtrl', function ($scope, $http) {
            method: 'POST',
            url: 'http://localhost:8080/signup',
            headers: {
-             'Content-Type': "application/json"
+             'Content-Type':  "text/plain"
            },
            data:{data: data}
           }
 
+
+console.log("PSignUpCtrl submitPost req email:"+req.data.data.email);
+console.log("PSignUpCtrl submitPost req full_name:"+req.data.data.full_name);
+console.log("PSignUpCtrl submitPost req password:"+req.data.data.password);
+
+
           $http(req).success(function (data, status, headers, config) {
                 $scope.signup.email = data.email; 
-                $scope.signup.full_name = data.username; 
+                $scope.signup.full_name = data.full_name; 
+                $scope.signup.password = data.password; 
             }).error(function (data, status, headers, config) {
                 $scope.status = status + ' ' + headers;
             });

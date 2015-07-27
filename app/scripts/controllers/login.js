@@ -32,9 +32,14 @@ console.log("LoginCtrl submitPost req password:"+req.data.data.password);
 
 
           $http(req).success(function (data, status, headers, config) {
-                $scope.signup.email = data.email; 
-                $scope.signup.full_name = data.full_name; 
-                $scope.signup.password = data.password; 
+                $scope.code = data.data.code;
+                console.log("LoginCtrl success: code: "+data.data.code); 
+                $scope.message = data.data.message;
+                console.log("LoginCtrl success: message: "+data.data.message); 
+                $scope.session_id = data.data.session_id;
+                console.log("LoginCtrl success: session_id: "+data.data.session_id); 
+                
+
             }).error(function (data, status, headers, config) {
                 $scope.status = status + ' ' + headers;
             });

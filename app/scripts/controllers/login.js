@@ -38,9 +38,10 @@ console.log("LoginCtrl submitPost req password:"+req.data.data.password);
                 console.log("LoginCtrl success: message: "+data.data.message); 
                 if(data!=null){
                   if(data.data!=null){
-                    if(data.data.session_id!=null){
-                      $cookies.put('session_id', data.data.session_id);
-                      console.log("LoginCtrl success: session_id: "+data.data.session_id); 
+                    if(data.data.winestory_session!=null){
+                      $scope.winestory_session = data.data.winestory_session;
+                      $cookies.put('winestory_session', data.data.winestory_session);
+                      console.log("LoginCtrl success: winestory_session: "+data.data.winestory_session); 
                     }
                   }
                 }

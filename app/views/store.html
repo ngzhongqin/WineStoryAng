@@ -1,0 +1,26 @@
+<h1>Store</h1>
+
+<p>Wines: {{wines}}</p>
+
+<table class="wines" style="width:100%">
+  <tr>
+    <th>No</th>
+    <th>Name</th> 
+    <th>Year</th>
+    <th>Price</th>
+    <th>Tasting Note</th>
+    <th>Volume</th>
+    <th>Palate</th>
+    <th>Nose</th>
+  </tr>
+  <tr ng-repeat="wine in wines">
+    <td><a href="#/wine/{{wine.id}}" >{{wine.id}}</a></td>
+    <td><a href="#/wine/{{wine.id}}" >{{wine.name}}</a></td> 
+    <td>{{wine.year}}</td>
+    <th>{{wine.price}}</td>
+    <td>{{wine.tasting_note}}</td>
+    <td>{{wine.volume}}</td>
+    <td>{{wine.palate}}</td>
+    <td>{{wine.nose}}</td>
+  </tr>
+</table>

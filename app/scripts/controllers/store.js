@@ -14,9 +14,10 @@ app.controller('StoreCtrl', function ($scope, $http) {
         'field1' : 'getWines',
     };
 
+    var req_url = backendHostname+'/store?action=GetAll'
     var req = {
      method: 'POST',
-     url: 'http://localhost:8080/store',
+     url: req_url,
      headers: {
        'Content-Type': "text/plain"
      },

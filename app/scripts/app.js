@@ -11,6 +11,9 @@
  *
  * Main module of the application.
  */
+
+var backendHostname = 'http://localhost:8080'
+
 var app = angular
   .module('winestoryApp', [
     'ngAnimate',

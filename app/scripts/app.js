@@ -37,6 +37,11 @@ var app = angular
         controller: 'StoreCtrl',
         controllerAs: 'store'
       })
+      .when('/wine/:param1', {
+        templateUrl: 'views/store/wineView.html',
+        controller: 'WineViewCtrl',
+        controllerAs: 'wineView'
+      })
       .when('/signup', {
         templateUrl: 'views/signup.html',
         controller: 'SignUpCtrl',

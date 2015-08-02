@@ -1,0 +1,50 @@
+body {
+  background: #F0F0F0;
+}
+
+
+.wine-single {
+  background: #fff;
+  padding: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.wine-single h3 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0 0 0.5rem 0;
+}
+@media only screen and (max-width: 64em) {
+  /* line 11, /Users/zhongqinng/RubymineProjects/WineStory/app/assets/stylesheets/wines.css.scss */
+  .wine-single h3 {
+    padding-top: 1rem;
+  }
+}
+
+.wine-single h6 {
+  color: #50b2d0;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0 0 0.5rem 0;
+}
+
+.wine-single p {
+  font-size: 0.875rem;
+  line-height: 1.2rem;
+  margin: 0;
+  padding: 0.875rem 0;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
+
+.wine-single .button {
+  margin-top: 1rem;
+}
+
+.row.wide {
+  max-width: rem-calc(1200);
+}

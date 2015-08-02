@@ -2,6 +2,37 @@
 
 <!-- <p>Wines: {{wines}}</p> -->
 
+
+<div ng-repeat="wine in wines">
+    <div class="row">
+      <div class="three columns">
+            <div class="medium-4 large-4 columns">
+              <div class="item-wrapper">
+                <div class="img-wrapper">
+                  <form action="/add_to_cart/wine.id" class="button_to" method="post">
+                    <div>
+                        <input class="button expand add-to-cart" type="submit" value="Add to Cart" />
+                    </div>
+                </form>
+                  <a href="/#/wine/{{wine.id}}"><img alt="{{wine.name}}" src="{{wine.image_path}}" /></a>
+                </div>
+                <h4><a href="/#/wines/{{wine.id}}">{{wine.name}}</a></h4>
+                <h5>SGD {{wine.price}}</h5>
+                <p>{{wine.tasting_note}}</p>
+              </div>
+
+            </div>
+
+            <div class="wine empty">
+            </div>
+
+      </div>
+    </div>
+</div>
+
+
+
+
 <table class="wines" style="width:100%">
   <tr>
     <th>No</th>

@@ -1,1 +1,32 @@
-<h1> Wine: {{wine}} <h1>
+<article class="wine-single row wide">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="small-12 medium-6 large-8 columns">
+        <img alt="{{wine.name}}" src="{{wine.image_path}}" />
+      </div>
+      <div class="small-12 medium-6 large-4 columns">
+        <h3>{{wine.name}}</h3>
+        <h4>SGD {{wine.price}}</h4>
+        <h5>Vintage: {{wine.year}}</h5>
+        <h6>{{wine.grapes}}</h6>
+        <p>{{wine.volume}} ml </p>
+        <p>{{wine.tasting_note}}</p>
+        <form action="/add_to_cart/1" class="button_to" method="post">
+        	<div>
+        		<input class="button expand add-to-cart" type="submit" value="Add to Cart" />
+        	</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+

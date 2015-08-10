@@ -33,7 +33,7 @@ var app = angular
         controllerAs: 'main'
       })
       .when('/store', {
-        templateUrl: 'views/store.html',
+        templateUrl: 'views/store/store.html',
         controller: 'StoreCtrl',
         controllerAs: 'store'
       })
@@ -56,3 +56,7 @@ var app = angular
         redirectTo: '/'
       });
   });
+
+
+
+

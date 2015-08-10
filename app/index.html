@@ -39,8 +39,8 @@
       <!-- Right Nav Section -->
       <ul class="right">
 
-            <li class="has-dropdown">
-              <a href="#">Full Name</a>
+            <li ng-if="user" class="has-dropdown">
+              <a href="#">{{user.full_name}}</a>
               <ul class="dropdown">
                 <li><a href="#">Profile</a></li>
                 <li ><a href="#">Orders</a></li>
@@ -50,8 +50,8 @@
         <li> <a href="/#/store">Store</a></li>
         <li> <a href="/cart">Cart</a></li>
 
-        <li> <a href="/#/signup">Sign Up</a></li>
-        <li> <a href="/#/login">Login</a></li>
+        <li ng-if="!user" > <a href="/#/signup">Sign Up</a></li>
+        <li ng-if="!user" > <a href="/#/login">Login</a></li>
 
       </ul>
 
@@ -133,13 +133,15 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/services/SplitArrayService.js"></script>
+        <!-- // <script src="scripts/services/User.js"></script> -->
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/signup.js"></script>
         <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/controllers/store.js"></script>
+        <script src="scripts/controllers/store/store.js"></script>
         <script src="scripts/controllers/store/viewWine.js"></script>
-        <script src="scripts/controllers/service.js"></script>
+        
 
         <!-- endbuild -->
 </body>

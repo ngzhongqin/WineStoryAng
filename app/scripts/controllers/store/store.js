@@ -8,13 +8,16 @@
  * Controller of the pssdashApp
  */
 
-app.controller('StoreCtrl', function ($scope, $http, SplitArrayService) {
+app.controller('StoreCtrl', function ($scope, $http,$routeParams, SplitArrayService, $cookies, $rootScope) {
+
+    var session_id = $cookies.get('winestory_session');
+    console.log("StoreCtrl: winestory_session: "+session_id);
 
     var data = {
         'field1' : 'getWines',
     };
 
-    var req_url = backendHostname+'/store?action=GetAll'
+    var req_url = backendHostname+'/store?action=GetAll'+'&'+'session_id='+session_id;
     var req = {
      method: 'POST',
      url: req_url,
@@ -26,6 +29,9 @@ app.controller('StoreCtrl', function ($scope, $http, SplitArrayService) {
 
       $http(req).success(function (data, status, headers, config) {
           $scope.wines = data.data; 
+          $rootScope.user = data.user;
+          console.log("data.user"+ data.user);
+          console.log("data.user.full_name"+ data.user.full_name);
           $scope.rows   = SplitArrayService.SplitArray($scope.wines, 3);
           console.log("data.data"+ data.data);
           console.log("$scope.wines: "+ $scope.wines);
@@ -35,14 +41,16 @@ app.controller('StoreCtrl', function ($scope, $http, SplitArrayService) {
 
 
 
-        $scope.addToCart = function () {
+        $scope.addToCart = function (wine) {
           console.log("StoreCtrl addToCart");
           var data = {
-              'wine'     : $routeParams.param1,
-              'session_id' : $cookies.get('winestory_session'),
+              'dummy'     : 'dummy'
           };
 
-          var req_url = backendHostname+'/store?action=AddToCart'+'&'+'wine='+$routeParams.param1;
+          var session_id = $cookies.get('winestory_session');
+          console.log("StoreCtrl: winestory_session: "+session_id);
+
+          var req_url = backendHostname+'/store?action=AddToCart'+'&'+'wine='+wine.id+'&'+'session_id='+session_id;
           var req = {
            method: 'POST',
 
@@ -59,7 +67,7 @@ app.controller('StoreCtrl', function ($scope, $http, SplitArrayService) {
 
           $http(req).success(function (data, status, headers, config) {
                 console.log("WineViewCtrl addToCart success");
-                $location.path('/store');
+                $location.path('/cart');
             }).error(function (data, status, headers, config) {
                 $scope.status = status + ' ' + headers;
             });

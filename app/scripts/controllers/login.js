@@ -17,9 +17,11 @@ app.controller('LoginCtrl', function ($scope, $http, $cookies) {
               'password' : $scope.login.password,
           };
 
+          var req_url = backendHostname+'/login?action=Login';
+
           var req = {
            method: 'POST',
-           url: 'http://localhost:8080/login',
+           url: req_url,
            headers: {
              'Content-Type':  "text/plain"
            },

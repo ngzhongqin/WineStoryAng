@@ -31,7 +31,9 @@ app.controller('StoreCtrl', function ($scope, $http,$routeParams, SplitArrayServ
           $scope.wines = data.data; 
           $rootScope.user = data.user;
           console.log("data.user"+ data.user);
-          console.log("data.user.full_name"+ data.user.full_name);
+          if(data.user!=null){
+                console.log("data.user.full_name"+ data.user.full_name);
+          }
           $scope.rows   = SplitArrayService.SplitArray($scope.wines, 3);
           console.log("data.data"+ data.data);
           console.log("$scope.wines: "+ $scope.wines);

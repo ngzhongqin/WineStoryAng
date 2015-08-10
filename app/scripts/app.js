@@ -52,6 +52,11 @@ var app = angular
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
+      .when('/logout', {
+        templateUrl: 'views/logout.html',
+        controller: 'LogoutCtrl',
+        controllerAs: 'logout'
+      })
       .otherwise({
         redirectTo: '/'
       });

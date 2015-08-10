@@ -8,7 +8,7 @@
  * Controller of the winestoryApp
  */
 
-app.controller('LoginCtrl', function ($scope, $http, $cookies) {
+app.controller('LoginCtrl', function ($scope, $rootScope, $http, $cookies, $location) {
 
 	$scope.submitPost = function () {
     console.log("LoginCtrl submitPost");
@@ -40,10 +40,14 @@ console.log("LoginCtrl submitPost req password:"+req.data.data.password);
                 console.log("LoginCtrl success: message: "+data.data.message); 
                 if(data!=null){
                   if(data.data!=null){
+                      $rootScope.code = data.data.code;
+                      $rootScope.message = data.data.message;
+                      
                     if(data.data.winestory_session!=null){
                       $scope.winestory_session = data.data.winestory_session;
                       $cookies.put('winestory_session', data.data.winestory_session);
                       console.log("LoginCtrl success: winestory_session: "+data.data.winestory_session); 
+                      $location.path('/store');
                     }
                   }
                 }

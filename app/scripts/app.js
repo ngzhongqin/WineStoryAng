@@ -57,6 +57,11 @@ var app = angular
         controller: 'LogoutCtrl',
         controllerAs: 'logout'
       })
+      .when('/cart', {
+        templateUrl: 'views/cart.html',
+        controller: 'CartCtrl',
+        controllerAs: 'cart'
+      })
       .otherwise({
         redirectTo: '/'
       });

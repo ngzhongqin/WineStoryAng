@@ -1,0 +1,41 @@
+<h1>Cart</h1>
+
+<table id="items">
+    <tr>
+        <th class="cart-item-table-title cart-font">Wine</th>
+        <th class="cart-item-table-title cart-font">Unit Price</th>
+        <th class="cart-item-table-title cart-font">Quantity</th>
+        <th class="cart-item-table-title cart-font">Price</th>
+    </tr>
+    
+    <% for item in @cart.items %>
+    <tr class="<%= cycle :odd, :even %>">
+        <td>
+            <div class="cart-img-wrapper">
+            <%=link_to( image_tag(item.wine.photo),item.wine) %>
+            </div>
+            <div class="cart-item-name cart-font"><%=link_to item.wine.name, item.wine%></div>
+        </td>
+        <td >
+            <p class="cart-item-price cart-font">S$<%= number_to_currency(item.wine.price) %></p>
+        </td>
+        <td >
+            <p class="cart-item-quantity cart-font"><%= item.quantity %></p>
+            <p><%= link_to "+", add_to_cart_path(:wine_id => item.wine.id), :method => :post %></p>
+            <p><%= link_to "-", decrease_qty_from_cart_path(:wine_id => item.wine.id), :method => :post %></p>
+        </td>
+        <td >
+            <p class="cart-item-full-price cart-font">S$<%= number_to_currency(item.full_price) %></p>
+            <p><%= link_to "Remove", remove_item_from_cart_path(:wine_id => item.wine.id), :method => :post %></p>
+        </td>
+        </tr>
+            <% end %>
+        <tr>
+        <td class="cart-item-total-price cart-font" colspan="3">
+            Total Price
+        </td>
+        <td class="total price cart-font" colspan="1">
+            S$<%= @cart.total_price %>
+        </td>
+    </tr>
+</table>

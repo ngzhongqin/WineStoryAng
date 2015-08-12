@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name pssdashApp.controller:StoreCtrl
+ * @name winestoryApp.controller:StoreCtrl
  * @description
  * # StoreCtrl
- * Controller of the pssdashApp
+ * Controller of the winestoryApp
  */
 
-app.controller('StoreCtrl', function ($scope, $http,$routeParams, SplitArrayService, $cookies, $rootScope) {
+app.controller('StoreCtrl', function ($scope, $http,$routeParams, SplitArrayService,$cookies, $rootScope, CartService) {
 
     var session_id = $cookies.get('winestory_session');
     console.log("StoreCtrl: winestory_session: "+session_id);
@@ -43,37 +43,9 @@ app.controller('StoreCtrl', function ($scope, $http,$routeParams, SplitArrayServ
 
 
 
-        $scope.addToCart = function (wine) {
-          console.log("StoreCtrl addToCart");
-          var data = {
-              'dummy'     : 'dummy'
-          };
-
-          var session_id = $cookies.get('winestory_session');
-          console.log("StoreCtrl: winestory_session: "+session_id);
-
-          var req_url = backendHostname+'/store?action=AddToCart'+'&'+'wine='+wine.id+'&'+'session_id='+session_id;
-          var req = {
-           method: 'POST',
-
-           url: req_url,
-           headers: {
-             'Content-Type':  "text/plain"
-           },
-           data:{data: data}
-          }
-
-
-          console.log("StoreCtrl addToCart req wine:"+req.data.data.wine);
-          console.log("StoreCtrl addToCart req session_id:"+req.data.data.session_id);
-
-          $http(req).success(function (data, status, headers, config) {
-                console.log("WineViewCtrl addToCart success");
-                $location.path('/cart');
-            }).error(function (data, status, headers, config) {
-                $scope.status = status + ' ' + headers;
-            });
-
-  };
+    $scope.addToCart = function (wine) {
+      console.log("StoreCtrl addToCart");
+        CartService.addToCart(wine);
+    };
 
 });

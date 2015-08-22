@@ -8,7 +8,7 @@
  * Controller of the winestoryApp
  */
 
-app.controller('StoreCtrl', function ($scope, $http,$routeParams, SplitArrayService,$cookies, $rootScope, CartService) {
+app.controller('StoreCtrl', function ($scope, $http,$routeParams, SplitArrayService,$cookies, $rootScope, CartService, ngCart) {
 
     var session_id = $cookies.get('winestory_session');
     console.log("StoreCtrl: winestory_session: "+session_id);

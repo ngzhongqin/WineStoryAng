@@ -16,6 +16,7 @@ var backendHostname = 'http://localhost:8080'
 
 var app = angular
   .module('winestoryApp', [
+    'ngCart',
     'ngAnimate',
     'ngAria',
     'ngCookies',

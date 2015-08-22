@@ -1,7 +1,43 @@
 <h1>Store</h1>
 
 
+<div class="row" ng-repeat="row in rows">
+      <div class="three columns">
+        <div ng-repeat="wine in row">
+            <div class="medium-4 large-4 columns">
+              <div class="item-wrapper">
+                <div class="img-wrapper">
+                   <form ng-submit="addToCart(wine)">
+                    <div>
+                            <ngcart-addtocart id="{{ wine.id }}" 
+                                  name="{{ wine.name }}" 
+                                  price="{{ wine.price }}" 
+                                  quantity="1" 
+                                  quantity-max="2" 
+                                  data="wine">
+                                Add to Cart
+                        </ngcart-addtocart>
+                    </div>
+                </form>
+                  <a href="/#/wine/{{wine.id}}"><img alt="{{wine.name}}" src="{{wine.image_path}}" /></a>
+                </div>
+                <h4><a href="/#/wines/{{wine.id}}">{{wine.name}}</a></h4>
+                <h5>SGD {{wine.price}}</h5>
+                <p>{{wine.tasting_note}}</p>
+              </div>
+            </div>
 
+        </div>
+
+            <div class="wine empty">
+            </div>
+
+      </div>
+</div>
+
+
+
+<!--
 <div class="row" ng-repeat="row in rows">
       <div class="three columns">
         <div ng-repeat="wine in row">
@@ -29,6 +65,7 @@
 
       </div>
 </div>
+-->
 
 
 

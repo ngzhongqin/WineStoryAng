@@ -1,1 +1,23 @@
-<h1>Checkout</h1>
+<h2>Checkout</h2>
+
+<div class="row">
+  
+    <div class="small-12 medium-5 large-5 columns">
+        <ngcart-cart></ngcart-cart>
+    </div>
+    <div class="medium-1 large-1 columns"> </div>
+    
+    <div class="small-12 medium-7 large-7 columns">
+        <div class="row">
+            <h4>Shipping Information</h4>
+        </div>
+        <div ng-if="!user" class="row checkout-account">
+            <p>You are currently checking out as a guest.</p>
+            <p>If you've already registered with WineStory.sg, please go ahead and <a href="#/login">Log In</a>.</p>
+            <p>If not, <a href="#/signup">Sign Up</a>. It's fast and easy.</p>
+        </div>
+        <div ng-if="user" class="row checkout-account">
+            <p>Welcome back, {{user.full_name}}</p>
+        </div>
+    </div>
+</div>

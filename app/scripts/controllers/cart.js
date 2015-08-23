@@ -8,7 +8,8 @@
  * Controller of the winestoryApp
  */
 
-app.controller('CartCtrl', function ($scope ,CartService, ngCart, $cookies, $rootScope) {
+app.controller('CartCtrl', function ($scope ,CartService, ngCart, $cookies, $rootScope, UserService) {
+    UserService.getCurrentUser('cart');
     ngCart.setTaxRate(7);
     ngCart.setShipping(20);
     

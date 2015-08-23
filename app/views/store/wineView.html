@@ -11,11 +11,23 @@
         <h6>{{wine.grapes}}</h6>
         <p>{{wine.volume}} ml </p>
         <p>{{wine.tasting_note}}</p>
+          
+          <ngcart-addtocart id="{{ wine.id }}" 
+                  name="{{ wine.name }}" 
+                  price="{{ wine.price }}" 
+                  quantity="1" 
+                  quantity-max="2" 
+                  data="wine">
+                Add to Cart
+        </ngcart-addtocart>
+          
+<!--
         <form action="/add_to_cart/1" class="button_to" method="post">
         	<div>
         		<input class="button expand add-to-cart" type="submit" value="Add to Cart" />
         	</div>
         </form>
+-->
       </div>
     </div>
   </div>

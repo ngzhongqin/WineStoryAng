@@ -63,6 +63,11 @@ var app = angular
         controller: 'CartCtrl',
         controllerAs: 'cart'
       })
+      .when('/checkout', {
+        templateUrl: 'views/checkout.html',
+        controller: 'CheckoutCtrl',
+        controllerAs: 'checkout'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -44,6 +44,7 @@
               <ul class="dropdown">
                 <li><a href="#">Profile</a></li>
                 <li ><a href="#">Orders</a></li>
+                <li ng-if="user" > <a href="/#/logout">Logout</a></li>
               </ul>
             </li>
 
@@ -58,7 +59,7 @@
               </a>  
             </li>
           
-            <li ng-if="user" > <a href="/#/logout">Logout</a></li>
+
       </ul>
 
     </section>

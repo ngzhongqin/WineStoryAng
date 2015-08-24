@@ -10,5 +10,10 @@
 
 app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope, UserService) {
     UserService.getCurrentUser('checkout');
+    $scope.ngCart = ngCart;
+    
+    $scope.review_order = function(){
+        console.log("CheckoutCtrl - review_order clicked on");
+    }
     
 });

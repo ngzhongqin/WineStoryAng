@@ -1,5 +1,8 @@
 <h2>Checkout</h2>
 
+<p>Checkout: {{checkout}}</p>
+<p>Cart: {{ngCart.getCart().items}}</p>
+
 <div class="row">
   
     <div class="small-12 large-5 columns">
@@ -34,7 +37,7 @@
                               <span class="prefix">Name</span>
                             </div>
                             <div class="large-9 columns">
-                              <input type="text" placeholder="Name" />
+                              <input type="text" placeholder="Name" ng-model="checkout.name"/>
                             </div>  
                         </div>
                     </div>
@@ -47,7 +50,7 @@
                               <span class="prefix">Email</span>
                             </div>
                             <div class="large-9 columns">
-                              <input type="email" placeholder="Email" />
+                              <input type="email" placeholder="Email" ng-model="checkout.email"/>
                             </div>  
                         </div>
                     </div>
@@ -73,7 +76,7 @@
                               <span class="prefix">Postal</span>
                             </div>
                             <div class="large-9 columns">
-                              <input type="text" maxlength="6" placeholder="Postal Code" />
+                              <input type="text" maxlength="6" placeholder="Postal Code" ng-model="checkout.postal_code"/>
                             </div>  
                         </div>
                     </div>
@@ -81,10 +84,10 @@
                       <div class="large-6 columns">
                         <div class="row collapse">
                             <div class="large-3 columns">
-                              <span class="prefix">Contact</span>
+                              <span class="prefix">Mobile</span>
                             </div>
                             <div class="large-9 columns">
-                              <input type="text" maxlength="8" placeholder="Contact" />
+                              <input type="number" maxlength="8" placeholder="Mobile" ng-model="checkout.mobile" />
                             </div>  
                         </div>
                     </div>
@@ -118,10 +121,13 @@
                   <div class="row">
                     <div class="large-12 columns">                        
                       <label>Other Instructions
-                        <textarea placeholder="Other Instructions"></textarea>
+                        <textarea placeholder="Other Instructions" ng-model="checkout.other_instructions"></textarea>
                       </label>
                     </div>
                   </div>
+                    
+                    
+                <div class="button checkout-review-order-button" ng-click="review_order()">Review Order</div>
                     
                 </form>
                    

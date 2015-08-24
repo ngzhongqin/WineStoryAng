@@ -2,22 +2,130 @@
 
 <div class="row">
   
-    <div class="small-12 medium-5 large-5 columns">
+    <div class="small-12 large-5 columns">
         <ngcart-cart></ngcart-cart>
     </div>
-    <div class="medium-1 large-1 columns"> </div>
+    <div class="large-1 columns"> </div>
     
-    <div class="small-12 medium-7 large-7 columns">
+    <div class="small-12 large-7 columns">
         <div class="row">
             <h4>Shipping Information</h4>
         </div>
         <div ng-if="!user" class="row checkout-account">
-            <p>You are currently checking out as a guest.</p>
-            <p>If you've already registered with WineStory.sg, please go ahead and <a href="#/login">Log In</a>.</p>
-            <p>If not, <a href="#/signup">Sign Up</a>. It's fast and easy.</p>
+            You are currently checking out as a guest.
+            </br>
+            If you've already registered with WineStory.sg, please go ahead and <a  class="checkout-account-link" href="#/login">Log In</a>.
+            </br>
+            If not, <a class="checkout-account-link" href="#/signup">Sign Up</a>. It's fast and easy.
         </div>
+        
         <div ng-if="user" class="row checkout-account">
             <p>Welcome back, {{user.full_name}}</p>
+        </div>
+        
+        <div class="row checkout-shipping-address">
+            <div class="small-12 medium-12 large-12 columns">
+                
+                <form>
+                  <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Name</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" placeholder="Name" />
+                            </div>  
+                        </div>
+                    </div>
+                  </div>
+                    
+                  <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Email</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="email" placeholder="Email" />
+                            </div>  
+                        </div>
+                    </div>
+                  </div>
+                    
+                  <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Address</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" placeholder="Address" />
+                            </div>  
+                        </div>
+                    </div>
+                  </div>   
+                    
+                  <div class="row">
+                    <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Postal</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" maxlength="6" placeholder="Postal Code" />
+                            </div>  
+                        </div>
+                    </div>
+                      
+                      <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Contact</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" maxlength="8" placeholder="Contact" />
+                            </div>  
+                        </div>
+                    </div>
+                  </div>   
+                    
+                    
+                  <div class="row">
+                    <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">City</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" value="Singapore" readonly />
+                            </div>  
+                        </div>
+                    </div>
+                      
+                      <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Country</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" value="Singapore" readonly />
+                            </div>  
+                        </div>
+                    </div>
+                  </div>   
+                    
+                  <div class="row">
+                    <div class="large-12 columns">                        
+                      <label>Other Instructions
+                        <textarea placeholder="Other Instructions"></textarea>
+                      </label>
+                    </div>
+                  </div>
+                    
+                </form>
+                   
+            </div>          
         </div>
     </div>
 </div>

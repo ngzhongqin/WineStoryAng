@@ -6,6 +6,7 @@ app.service('CartService',['$http','$cookies', function($http,$cookies){
         var session_id = $cookies.get('winestory_session');
         var req_url = backendHostname+'/cart?action=PrepCart'+'&'+'session_id='+session_id;
         console.log("CartService - prepCart checkout.name:"+checkout.name);
+                
         var data = {
             'ngCart' : ngCart,
             'checkout': checkout
@@ -13,7 +14,10 @@ app.service('CartService',['$http','$cookies', function($http,$cookies){
         $http({
             url: req_url,
             method: 'POST',
-            data: data
+            headers: {
+                'Content-Type':  "text/plain"
+            },
+            data: {data: data}
         }).success(function (data, status, header, config){
             callback(data);
         });

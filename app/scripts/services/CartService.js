@@ -1,31 +1,21 @@
-app.service('CartService', function ($cookies,$http,$rootScope) {
-return {
-    getCartItems: function (globalCart) {
+app.service('CartService',['$http','$cookies', function($http,$cookies){
+    this.prep_cart = prepCart;
+
+    function prepCart(ngCart,checkout,callback) {
+        console.log("CartService - prepCart");
         var session_id = $cookies.get('winestory_session');
-        console.log("CartService: winestory_session: "+session_id);
-
+        var req_url = backendHostname+'/cart?action=PrepCart'+'&'+'session_id='+session_id;
+        console.log("CartService - prepCart checkout.name:"+checkout.name);
         var data = {
-            'globalCart' : globalCart,
+            'ngCart' : ngCart,
+            'checkout': checkout
         };
-
-        var req_url = backendHostname+'/cart?action=GetDetails'+'&'+'session_id='+session_id;
-        var req = {
-         method: 'POST',
-         url: req_url,
-         headers: {
-           'Content-Type': "text/plain"
-         },
-         data:{data: data}
-        }
-
-          $http(req).success(function (data, status, headers, config) {
-                
-          }).error(function (data, status, headers, config) {
-              $scope.status = status + ' ' + headers;
-          });         
-    },
-    
-}
-
-
-});
+        $http({
+            url: req_url,
+            method: 'POST',
+            data: data
+        }).success(function (data, status, header, config){
+            callback(data);
+        });
+    };
+}]);

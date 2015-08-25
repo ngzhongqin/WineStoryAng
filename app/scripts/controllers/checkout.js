@@ -8,7 +8,7 @@
  * Controller of the winestoryApp
  */
 
-app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope, UserService, UserService2) {
+app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope, UserService, UserService2, CartService) {
     UserService.getCurrentUser('checkout');
     $scope.ngCart = ngCart;
     
@@ -21,6 +21,9 @@ app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope, U
     
     $scope.review_order = function(){
         console.log("CheckoutCtrl - review_order clicked on");
+        CartService.prep_cart(ngCart,$scope.checkout,function(data){
+            
+        });
     }
     
 });

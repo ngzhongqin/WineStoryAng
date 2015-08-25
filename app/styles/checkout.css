@@ -19,6 +19,11 @@
     float: right;
 }
 
+.checkout-button{
+    background-color: #111111;
+    float: right;
+}
+
 .checkout-shipping-address{
     background-color: #ffffff;
     border: 0;

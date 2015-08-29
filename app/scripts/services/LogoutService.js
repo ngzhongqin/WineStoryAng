@@ -1,4 +1,5 @@
-app.service('LogoutService',['$http','$cookies','$location','$rootScope', function($http,$cookies,$location,$rootScope){
+app.service('LogoutService',['$http','$cookies','$location','$rootScope', 'AlertBoxService',
+                             function($http,$cookies,$location,$rootScope,AlertBoxService){
     this.logout = logout;
 
     function logout(callback) {
@@ -20,6 +21,9 @@ app.service('LogoutService',['$http','$cookies','$location','$rootScope', functi
             $cookies.remove('winestory_session');
             $rootScope.code = data.returnStatus.code;
             $rootScope.message = data.returnStatus.message;
+            
+            AlertBoxService.showAlert(data.returnStatus.colour);
+            
             $location.path('/store');
         });
     };

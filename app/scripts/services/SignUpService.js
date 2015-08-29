@@ -1,4 +1,5 @@
-app.service('SignUpService',['$http','$cookies','$location','$rootScope', function($http,$cookies,$location,$rootScope){
+app.service('SignUpService',['$http','$cookies','$location','$rootScope', 'AlertBoxService',
+                             function($http,$cookies,$location,$rootScope,AlertBoxService){
     this.sign_up = signUp;
 
     function signUp(full_name,email,password,callback) {
@@ -22,6 +23,8 @@ app.service('SignUpService',['$http','$cookies','$location','$rootScope', functi
             callback(data);
             $rootScope.code = data.returnStatus.code;
             $rootScope.message = data.returnStatus.message;
+            
+            AlertBoxService.showAlert(data.returnStatus.colour);
 
             if(data.data!=null){
                 if(data.data.session_id!=null){

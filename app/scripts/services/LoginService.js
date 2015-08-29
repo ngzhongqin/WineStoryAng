@@ -1,4 +1,5 @@
-app.service('LoginService',['$http','$cookies','$location','$rootScope', function($http,$cookies,$location,$rootScope){
+app.service('LoginService',['$http','$cookies','$location','$rootScope', 'AlertBoxService',
+                            function($http,$cookies,$location,$rootScope,AlertBoxService){
     this.login = login;
 
     function login(email,password,callback) {
@@ -21,10 +22,17 @@ app.service('LoginService',['$http','$cookies','$location','$rootScope', functio
             callback(data);
             $rootScope.code = data.returnStatus.code;
             $rootScope.message = data.returnStatus.message;
-
-            if(data.data.session_id!=null){
-                $cookies.put('winestory_session', data.data.session_id);
-                $location.path('/store');
+            
+            
+            AlertBoxService.showAlert(data.returnStatus.colour);
+            
+            if(data!=null){
+                if(data.data!=null){
+                    if(data.data.session_id!=null){
+                        $cookies.put('winestory_session', data.data.session_id);
+                        $location.path('/store');
+                    }
+                }
             }
         });
     };

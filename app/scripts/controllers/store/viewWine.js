@@ -13,7 +13,7 @@ app.controller('WineViewCtrl', function ($scope, $http, $location, $routeParams,
   console.log("WineViewCtrl - $routeParams.param1: "+$routeParams.param1);
     
   StoreService.get_wine($routeParams.param1,function(data){
-        $scope.wine = data.data;         
+        $scope.wine = data.data.wine;         
     });
     
 });

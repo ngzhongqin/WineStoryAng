@@ -19,7 +19,7 @@ app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope,
         return ngCart.isEmpty();   
     }
     
-    UserService2.user(function(data) {
+    UserService2.getUserAddress(function(data) {
         if(data!=null){
             $scope.checkout.name = data.full_name;
             $scope.checkout.email = data.email;

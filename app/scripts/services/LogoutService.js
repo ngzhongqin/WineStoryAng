@@ -19,6 +19,7 @@ app.service('LogoutService',['$http','$cookies','$location','$rootScope', 'Alert
         }).success(function (data, status, header, config){
             callback(data);
             $cookies.remove('winestory_session');
+            $rootScope.user = null;
             $rootScope.code = data.returnStatus.code;
             $rootScope.message = data.returnStatus.message;
             

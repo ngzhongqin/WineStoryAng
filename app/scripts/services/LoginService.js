@@ -3,7 +3,7 @@ app.service('LoginService',['$http','$cookies','$location','$rootScope', 'AlertB
     this.login = login;
 
     function login(email,password,callback) {
-        console.log("LoginService - login");
+//        console.log("LoginService - login");
         
         var req_url = backendHostname+'/login?action=Login';
         var data = {

@@ -1,4 +1,4 @@
-app.service('UserService2',['$http','$cookies', function($http,$cookies){
+app.service('UserService2',['$http','$cookies','$rootScope', function($http,$cookies,$rootScope){
     this.user = getUser;
 
     function getUser(callback) {
@@ -10,6 +10,7 @@ app.service('UserService2',['$http','$cookies', function($http,$cookies){
             method: 'POST'
         }).success(function (data, status, header, config){
             callback(data.user);
+            $rootScope.user = data.user;
         });
     };
 }]);

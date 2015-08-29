@@ -10,17 +10,16 @@
 
 app.controller('StoreCtrl', function ($scope, $http,
                                        $routeParams, SplitArrayService,
-                                       $cookies, $rootScope, CartService, 
+                                       $cookies, $rootScope, CartService,
+                                       UserService2,
                                        ngCart, StoreService) {
 
+    UserService2.user(function(data) {}); 
+    
     StoreService.get_all(function(data) {
           $scope.wines = data.data.wines; 
           $scope.rows   = SplitArrayService.SplitArray($scope.wines, 3);
     }); 
     
-    $scope.addToCart = function (wine) {
-        console.log("StoreCtrl addToCart");
-        CartService.addToCart(wine);
-    };
 
 });

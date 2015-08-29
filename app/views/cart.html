@@ -3,55 +3,7 @@
 
 <div class="small-12 large-5 columns">
     <ngcart-cart></ngcart-cart>
-    <div class="button checkout-at-cart-button" ng-click="checkout()">Checkout</div>
+    <div ng-if="!isCartEmpty()" class="button checkout-at-cart-button" ng-click="checkout()">Checkout</div>
+    <div ng-if="isCartEmpty()" class="button checkout-at-cart-button" ng-click="store()">Continue Shopping</div>
 </div>
 
-
-
-<!--<ngcart-checkout service="http" settings="{ url:'#/checkout' }">Checkout</ngcart-checkout>-->
-
-<!--
-<table id="items">
-    <tr>
-        <th class="cart-item-table-title cart-font">Wine</th>
-        <th class="cart-item-table-title cart-font">Volume</th>
-        <th class="cart-item-table-title cart-font">Unit Price</th>
-        <th class="cart-item-table-title cart-font">Quantity</th>
-        <th class="cart-item-table-title cart-font">Price</th>
-    </tr>
-    
-    Cart: {{displayCart}}
-    
-    <p>Global Cart: {{globalCart}}</p>
-    
-    <tr ng-repeat="item in displayCart">
-        <td>
-            <div class="cart-img-wrapper">
-                    
-            </div>
-            <div class="cart-item-name cart-font"><a href='#/wine/{{item.id}}'> {{item.name}} </a></div>
-        </td>
-        <td >
-            <p class="cart-item-price cart-font">{{item.volume}}ml</p>
-        </td>
-        <td >
-            <p class="cart-item-price cart-font">S${{item.price}}</p>
-        </td>
-        <td >
-            <p class="cart-item-quantity cart-font">{{item.qty}}</p>
-        </td>
-        <td >
-            <p class="cart-item-full-price cart-font">S${{item.qty*item.price}}</p>
-            <p></p>
-        </td>
-        </tr>
-            
-        <tr>
-        <td class="cart-item-total-price cart-font" colspan="4">
-            Total Price
-        </td>
-        <td class="total price cart-font" colspan="1">
-            S$ {{getTotal()}}
-        </td>
-    </tr>
-</table>-->

@@ -8,8 +8,16 @@
  * Controller of the winestoryApp
  */
 
-app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope, UserService2, CartService) {
+app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope, 
+                                          UserService2, CartService, $location) {
     $scope.ngCart = ngCart;
+    
+    $scope.isCartEmpty = function(){
+        if(ngCart.isEmpty()){
+            $location.path('/store');
+        }
+        return ngCart.isEmpty();   
+    }
     
     UserService2.user(function(data) {
         if(data!=null){

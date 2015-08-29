@@ -17,6 +17,13 @@ app.controller('CartCtrl', function ($scope, ngCart, $cookies, $rootScope, UserS
     $scope.checkout = function(){
         $location.path('/checkout');
     }
-
     
+    $scope.isCartEmpty = function(){
+//        console.log('CartCtrl - isCartEmpty:'+ngCart.isEmpty());
+        return ngCart.isEmpty();   
+    }
+
+    $scope.store = function(){
+        $location.path('/store');
+    }
 });

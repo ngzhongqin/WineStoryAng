@@ -1,6 +1,6 @@
 
 //Not in use.
-//decided to do the authentication at every call page controller.
+//Migrated to UserService2 instead.
 
 app.service('UserService', function ($cookies, $http, $rootScope) {
 return {

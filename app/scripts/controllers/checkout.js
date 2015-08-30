@@ -10,6 +10,9 @@
 
 app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope, 
                                           UserService2, CartService, $location) {
+    ngCart.setTaxRate(7);
+    ngCart.setShipping(20);
+    
     UserService2.user(function(data){});
     $scope.ngCart = ngCart;
     

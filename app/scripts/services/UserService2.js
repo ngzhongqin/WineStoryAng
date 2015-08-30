@@ -33,7 +33,7 @@ app.service('UserService2',['$http','$cookies','$rootScope', function($http,$coo
             },
             data: {data: data}
         }).success(function (data, status, header, config){
-            callback(data);
+            callback(data.data);
         });
     };
 }]);

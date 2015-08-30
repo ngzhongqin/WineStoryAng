@@ -10,6 +10,7 @@
 
 app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope, 
                                           UserService2, CartService, $location) {
+    UserService2.user(function(data){});
     $scope.ngCart = ngCart;
     
     $scope.isCartEmpty = function(){
@@ -25,6 +26,7 @@ app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope,
             $scope.checkout.email = data.email;
             $scope.checkout.address = data.address;
             $scope.checkout.postal_code = data.postal_code;
+            $scope.checkout.mobile = data.mobile;
         }
     }); 
     

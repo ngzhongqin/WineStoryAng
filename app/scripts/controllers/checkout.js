@@ -36,8 +36,9 @@ app.controller('CheckoutCtrl', function ($scope, ngCart, $cookies, $rootScope,
     $scope.review_order = function(){
         console.log("CheckoutCtrl - review_order clicked on");
         CartService.prep_cart(ngCart,$scope.checkout,function(data){
-            
+        
         });
     }
     
 });
+

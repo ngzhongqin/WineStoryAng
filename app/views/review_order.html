@@ -1,0 +1,69 @@
+<h2>Checkout - Review</h2>
+{{review_order}}
+
+<div class="row">
+  
+    <div class="small-12 large-7 columns">
+        
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th> 
+        <th>Total</th>
+      </tr>
+      <tr ng-repeat="item in review_order.items">
+        <td>{{item.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td>${{to2decimal(item.price)}}</td>
+        <td>${{to2decimal(item.price * item.quantity)}}</td>
+      </tr>
+      <tr>
+        <th colspan="3">Tax (7%):</th>
+        <th>${{to2decimal(review_order.tax)}}</th>
+      </tr>
+      <tr>
+        <th colspan="3">Shipping</th>
+        <th>{{getShipping()}}</th>
+      </tr>
+      <tr>
+        <th colspan="3">Total</th>
+        <th>${{to2decimal(review_order.total)}}</th>
+      </tr>
+    </table>
+    
+    <table style="width:100%">
+      <tr>
+        <th colspan="4">Shipping Details</th>
+      </tr>
+      <tr>
+        <th colspan="1">Name</th>
+        <td colspan="3">{{review_order.full_name}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Email</th>
+        <td colspan="3">{{review_order.email}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Address</th>
+        <td colspan="3">{{review_order.address}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Postal Code</th>
+        <td colspan="3">{{review_order.postal_code}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Mobile</th>
+        <td colspan="3">{{review_order.mobile}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Other Instructions</th>
+        <td colspan="3">{{review_order.other_instructions}}</td>
+      </tr>
+    </table>
+        
+    </div>
+    
+    <div class="large-1 columns"> </div>
+    
+</div>
